@@ -17,7 +17,6 @@ public class StudentDAO {
         }
     }
 
-    // In StudentDAO.java
     public List<Student> getAllStudents() throws SQLException {
         List<Student> students = new ArrayList<>();
         String sql = "SELECT * FROM students"; // Includes 'id'

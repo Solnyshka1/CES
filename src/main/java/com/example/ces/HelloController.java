@@ -5,48 +5,14 @@ import com.example.ces.dao.StudentDAO;
 import com.example.ces.dao.CourseDAO;
 import com.example.ces.model.Course;
 import com.example.ces.model.Student;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.sql.SQLException;
 
 public class HelloController {
-    @FXML
-    private TableView<Student> studentTable;
-    @FXML
-    private TableColumn<Student, Integer> studentIdCol;
-    @FXML
-    private TableColumn<Student, String> studentNameCol;
-    @FXML
-    private TableColumn<Student, String> studentEmailCol;
-    @FXML
-    private TextField studentName;
-    @FXML
-    private TextField studentEmail;
 
-    @FXML
-    private TableView<Course> courseTable;
-    @FXML
-    private TableColumn<Course, String> courseCodeCol;
-    @FXML
-    private TableColumn<Course, String> courseNameCol;
-    @FXML
-    private TableColumn<Course, Integer> capacityCol;
-    @FXML
-    private TableColumn<Course, Integer> enrolledCol;
-    @FXML
-    private TextField courseCode;
-    @FXML
-    private TextField courseName;
-    @FXML
-    private TextField courseCapacity;
 
-    @FXML
-    private ComboBox<Student> studentCombo;
-    @FXML
-    private ComboBox<Course> courseCombo;
 
     private StudentDAO studentDAO;
     private CourseDAO courseDAO;
@@ -58,7 +24,6 @@ public class HelloController {
         courseDAO = new CourseDAO();
         enrollmentDAO = new EnrollmentDAO();
 
-        // Initialize table columns
         studentIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         studentNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         studentEmailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -156,9 +121,7 @@ public class HelloController {
         try {
             enrollmentDAO.enrollStudent(student.getId(), course.getCode());
             refreshTables();
-            showAlert("Success", "Student enrolled successfully");
         } catch (Exception e) {
-            showAlert("Error", "Failed to enroll: " + e.getMessage());
         }
     }
 
@@ -175,30 +138,7 @@ public class HelloController {
         try {
             enrollmentDAO.unenrollStudent(student.getId(), course.getCode());
             refreshTables();
-            showAlert("Success", "Student unenrolled successfully");
         } catch (Exception e) {
-            showAlert("Error", "Failed to unenroll: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    private void exportToCSV() {
-        // Implement CSV export functionality
-    }
-
-    @FXML
-    private void generateReport() {
-        // Implement report generation functionality
-    }
-
-    private void refreshTables() {
-        try {
-            studentTable.getItems().setAll(studentDAO.getAllStudents());
-            courseTable.getItems().setAll(courseDAO.getAllCourses());
-            studentCombo.getItems().setAll(studentDAO.getAllStudents());
-            courseCombo.getItems().setAll(courseDAO.getAllCourses());
-        } catch (Exception e) {
-            showAlert("Error", "Failed to refresh data: " + e.getMessage());
         }
     }
 
@@ -208,36 +148,5 @@ public class HelloController {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
-    }
-
-    @FXML
-    private void addCourse() {
-        String code = courseCode.getText().trim();
-        String name = courseName.getText().trim();
-        String capacityText = courseCapacity.getText().trim();
-
-        if (code.isEmpty() || name.isEmpty() || capacityText.isEmpty()) {
-            showAlert("Error", "Please fill in all fields");
-            return;
-        }
-
-        try {
-            int capacity = Integer.parseInt(capacityText);
-            Course course = new Course(code, name, capacity);
-            courseDAO.addCourse(course);
-            clearCourseFields();
-            refreshTables(); // Refresh the UI to show the new course
-            showAlert("Success", "Course added successfully");
-        } catch (NumberFormatException e) {
-            showAlert("Error", "Invalid capacity value (must be a number)");
-        } catch (SQLException e) {
-            showAlert("Error", "Failed to add course: " + e.getMessage());
-        }
-    }
-
-    private void clearCourseFields() {
-        courseCode.clear();
-        courseName.clear();
-        courseCapacity.clear();
     }
 }
