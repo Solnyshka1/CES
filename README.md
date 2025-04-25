@@ -38,7 +38,9 @@ Here's how you can try the system:
 ![Screenshot 2025-04-24 220436](https://github.com/user-attachments/assets/9eafdd98-0e4d-40de-9b5c-912de342efed)
 ![Screenshot 2025-04-24 220328](https://github.com/user-attachments/assets/688e87da-c097-4419-a384-0e9b019b232d)
 ![Screenshot 2025-04-24 220543](https://github.com/user-attachments/assets/82e857b1-6d41-44cd-9ab1-f6149d38f2eb)
+
 Database Structure:
+
 ![Screenshot 2025-04-24 214044](https://github.com/user-attachments/assets/344ab93d-6b18-4237-8615-039e4a340ced)
 
 1. **Add Students**  
@@ -64,6 +66,9 @@ Database Structure:
 - Making sure the UI stays responsive during database operations
 - Handling all the edge cases (like deleting courses with enrollments)
 - Designing an interface that's simple but shows all needed info
+
+## Presentation: 
+https://www.canva.com/design/DAGkzVebzuo/oL0ASYulOUuNdOQVrCpfcQ/edit?utm_content=DAGkzVebzuo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Final Thoughts
 
