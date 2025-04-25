@@ -35,9 +35,9 @@ The tricky parts were making sure enrollments properly update the course counts 
 ## Testing It Out
 
 Here's how you can try the system:
-![image](https://github.com/user-attachments/assets/13ec39f1-d91a-4a0c-965d-8255b429df30)
-![image](https://github.com/user-attachments/assets/af595ac1-61f2-44fc-b6b5-22143f7b7296)
-![image](https://github.com/user-attachments/assets/8e89ad57-44ff-4fe2-bc6f-9fc4884c6362)
+![image](https://github.com/user-attachments/assets/88461b59-183e-43c6-aa50-c31b25aa7b5b)
+![image](https://github.com/user-attachments/assets/b29ad0e3-231c-41b7-918f-e4558905d11f)
+![image](https://github.com/user-attachments/assets/13d189d2-8a05-43de-8974-dc7ffe15bb5f)
 
 Database Structure:
 
